@@ -1,5 +1,5 @@
-<%@ page language="java" pageEncoding="utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" pageEncoding="utf-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -14,15 +14,17 @@
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
-    <!-- <link href="styles.css" rel="stylesheet" /> -->
-    <!-- <link rel="stylesheet" href="a.css"> -->
-    <link rel="stylesheet" href="../../../../resources/css/booking/booking.css">
-    <link rel="stylesheet" href="../../../../resources/css/styles.css">
-    <link rel="stylesheet" href="../../../../resources/api/calendar/main.css">
+<%--    <script>--%>
+<%--        window.onload = function(){--%>
+<%--            $('head').append('<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/booking/booking.css'/>">');--%>
+<%--        }--%>
+<%--    </script>--%>
+    <link rel="stylesheet" href="<c:url value='/resources/css/styles.css'/>">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<c:url value='/resources/css/booking/booking.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/api/calendar/main.css'/>">
 
 </head>
-
 <body class="sb-nav-fixed">
 <%@ include file="/WEB-INF/views/intro.jsp" %>
 
@@ -84,39 +86,42 @@
                             참석자및 사용자를 선택해주세요
                             <!-- <div class="attendees user_1">
                                 <div>
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-                                <div>
                                     <span>김사장</span>
                                 </div>
                             </div> -->
                         </div>
                     </div>
                     <div class="booking_attendees_check">
-                        <div>
-                            <input type="checkbox" name="user1" id="user1">
-                            <label for="user1">김사장</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="user2" id="user2">
-                            <label for="user2">백이사</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="user3" id="user3">
-                            <label for="user3">노부장</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="user931005" id="user931005">
-                            <label for="user931005">오팀장</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="user5" id="user5">
-                            <label for="user5">이과장</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="user990810" id="user990810">
-                            <label for="user990810">성대리</label>
-                        </div>
+                        <c:forEach var="info" items="${emp_info}">
+                            <div>
+                                <input type="checkbox" name="user${info.emp_num}" id="user${info.emp_num}">
+                                <label for="user${info.emp_num}">${info.emp_name}</label>
+                            </div>
+                        </c:forEach>
+<%--                                                <div>--%>
+<%--                                                    <input type="checkbox" name="user1" id="user1">--%>
+<%--                                                    <label for="user1">김사장</label>--%>
+<%--                                                </div>--%>
+<%--                                                <div>--%>
+<%--                                                    <input type="checkbox" name="user2" id="user2">--%>
+<%--                                                    <label for="user2">백이사</label>--%>
+<%--                                                </div>--%>
+<%--                                                <div>--%>
+<%--                                                    <input type="checkbox" name="user3" id="user3">--%>
+<%--                                                    <label for="user3">노부장</label>--%>
+<%--                                                </div>--%>
+<%--                                                <div>--%>
+<%--                                                    <input type="checkbox" name="user931005" id="user931005">--%>
+<%--                                                    <label for="user931005">오팀장</label>--%>
+<%--                                                </div>--%>
+<%--                                                <div>--%>
+<%--                                                    <input type="checkbox" name="user5" id="user5">--%>
+<%--                                                    <label for="user5">이과장</label>--%>
+<%--                                                </div>--%>
+<%--                                                <div>--%>
+<%--                                                    <input type="checkbox" name="user990810" id="user990810">--%>
+<%--                                                    <label for="user990810">성대리</label>--%>
+<%--                                                </div>--%>
                     </div>
                 </div>
                 <div class="booking_content_container">
@@ -139,11 +144,12 @@
     </div>
 </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../../../../resources/api/calendar/locales-all.js"></script>
-<script src="../../../../resources/api/calendar/main.js"></script>
-<script src="../../../../resources/js/booking/booking.js"></script>
+<script src="<c:url value='/resources/api/calendar/locales-all.js'/>"></script>
+<script src="<c:url value='/resources/api/calendar/main.js'/>"></script>
+<script src="<c:url value='/resources/js/booking/booking.js'/>"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
 </script>
 

@@ -55,13 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                 },
                 eventClick: function (info) {
-                    console.log(info.event.title);
-                    console.log(info.event.start);
-                    console.log(info.event.end);
-                    console.log(info.event.extendedProps.content)
-                    console.log(info.event.extendedProps.attendees)
-                    console.log(info.event.extendedProps.meetingroom)
-                    console.log(info.event.extendedProps.fixtures)
 
                     if (info.event.extendedProps.meetingroom != null) {
                         booking_event_meetingroom.value = info.event.extendedProps.meetingroom;
@@ -106,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     booking_memo.value = info.event.extendedProps.content;
 
                     const user_check_box = document.querySelectorAll("input[id *= user]");
+                    for (let i = 0; i< user_check_box.length; i++){
+                        user_check_box[i].checked = false;
+                    }
 
                     // 참석자 리스트 삭제
                     const attendees_all = document.querySelectorAll(".attendees");
@@ -120,13 +116,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             if (attendees[j] == user_check_box[i].id.slice(4)) {
                                 if (user_check_box[i].checked == false) {
                                     user_check_box[i].checked = true;
-
+                                    console.log(user_check_box[i].labels[0].innerHTML)
                                     // =============== 요소 만들기 ===============
                                     const attendees = document.createElement("div"); // 최상단 div 생성
                                     const attendees_name_box = document.createElement("div"); // 이름 div 생성
                                     const attendees_name = document.createElement("span"); // 이름 들어가는 span 생성
                                     attendees.setAttribute("class", `attendees user_${user_check_box[i].id.slice(4)}`); // 최상단 div에 클래스 주입
-                                    attendees_name.innerHTML = user_check_box[i].id; // 이름 들어가는 div에 이름넣기
+                                    attendees_name.innerHTML = user_check_box[i].labels[0].innerHTML; // 이름 들어가는 div에 이름넣기
                                     attendees_name_box.append(attendees_name); // 자식요소로 추가
                                     attendees.append(attendees_name_box); // 자식요소로 추가
                                     booking_attendees_list_box.append(attendees); // 자식요소로 추가
@@ -137,6 +133,54 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
 
+                    // 수정버튼 클릭 시
+                    booking_change_event.addEventListener("click", function(){
+
+                        // 참석자 데이터를 숫자만 뽑아서 배열로 저장
+                        let attendees_List = new Array;
+                        for (let i = 0; i < user_check_box.length; i++) {
+                            if (user_check_box[i].checked == true) {
+                                attendees_List.push(user_check_box[i].id.slice(4) + ",");
+                            }
+                        }
+
+                        // 참석자 데이터를 배열에서 문자열로 변환
+                        let attendees_emp_code_list = "";
+                        for (let i = 0; i < attendees_List.length; i++) {
+                            attendees_emp_code_list += attendees_List[i];
+                        }
+
+
+                        info.event.setProp("title", booking_title.value);
+                        info.event.setDates(booking_start_date.value, booking_end_date.value)
+                        info.event.setExtendedProp("content", booking_memo.value);
+                        info.event.setExtendedProp("meetingroom", booking_event_meetingroom.value);
+                        info.event.setExtendedProp("fixtures", booking_event_fixtures.value);
+                        info.event.setExtendedProp("attendees", attendees_emp_code_list);
+
+
+                        $.ajax({
+                            url: "/booking_event_change",
+                            method: "POST",
+                            dataType: "text",
+                            data: {
+                                "booking_num" : info.event.id,
+                                "booking_title" : booking_title.value,
+                                "booking_start_date" : booking_start_date.value,
+                                "booking_end_date" : booking_end_date.value,
+                                "booking_memo" : booking_memo.value,
+                                "meetingroom_num" : booking_event_meetingroom.value,
+                                "fixtures_num" : booking_event_fixtures.value,
+                                "booking_attendees" : attendees_emp_code_list
+                            }
+                        })
+                        booking_modal.style.display = "none";
+                        booking_event_datetime_container.childNodes[0].data = "";
+                        booking_event_datetime_box.style.height = "0px";
+                        booking_event_title.classList.remove("empty_booking_event_title_color");
+                    })
+
+                    // 삭제 버튼 클릭 시
                     booking_remove_event.addEventListener("click", function () {
 
                         $.ajax({
@@ -151,8 +195,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         // 이벤트 삭제
                         info.event.remove();
 
-                        // 모달창 내리기
                         booking_modal.style.display = "none";
+                        booking_event_datetime_container.childNodes[0].data = "";
+                        booking_event_datetime_box.style.height = "0px";
+                        booking_event_title.classList.remove("empty_booking_event_title_color");
                     })
 
                 },
@@ -400,6 +446,7 @@ booking_event_container.addEventListener("click", function (e) {
     }
 })
 
+
 const booking_attendees_list_box = document.querySelector(".booking_attendees_list > div");
 const booking_attendees_list = document.querySelector(".booking_attendees_list");
 const booking_attendees_check = document.querySelector(".booking_attendees_check");
@@ -413,7 +460,7 @@ booking_attendees_check.addEventListener("click", function (e) {
             const attendees_name_box = document.createElement("div"); // 이름 div 생성
             const attendees_name = document.createElement("span"); // 이름 들어가는 span 생성
             attendees.setAttribute("class", `attendees user_${e.target.id.slice(4)}`); // 최상단 div에 클래스 주입
-            attendees_name.innerHTML = e.target.id; // 이름 들어가는 div에 이름넣기
+            attendees_name.innerHTML = e.target.labels[0].innerHTML; // 이름 들어가는 div에 이름넣기
             attendees_name_box.append(attendees_name); // 자식요소로 추가
             attendees.append(attendees_name_box); // 자식요소로 추가
             booking_attendees_list_box.append(attendees); // 자식요소로 추가

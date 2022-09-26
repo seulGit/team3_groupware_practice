@@ -57,4 +57,21 @@
                  #{booking_memo});
         ]]>
     </insert>
+
+    <update id="booking_update" parameterType="hashmap">
+        <![CDATA[
+            UPDATE
+                booking
+            SET
+                booking_title = #{booking_title},
+                booking_start_date = #{booking_start_date},
+                booking_end_date = #{booking_end_date},
+                booking_memo = #{booking_memo},
+                meetingroom_num = #{meetingroom_num},
+                fixtures_num = #{fixtures_num},
+                booking_attendees = #{booking_attendees}
+            WHERE
+                booking_num = #{booking_num}
+        ]]>
+    </update>
 </mapper>
