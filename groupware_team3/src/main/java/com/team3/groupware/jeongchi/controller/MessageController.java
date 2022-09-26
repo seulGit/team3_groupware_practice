@@ -45,7 +45,7 @@ public class MessageController {
 	}
 
 // === 쪽지함의 쪽지쓰기의 주소록에서 조직 클릭한 경우(ajax) === //
-	@GetMapping("/message/writeAddress.os")
+	@GetMapping("/message/writeAddress")
 	public List<EmployeeVO> writeAddress(HttpServletRequest request) {
 //		public List<EmployeeDTO> writeAddress(@RequestParam List<EmployeeDTO> empMap) {
 		String dept_code = request.getParameter("dept_code");
