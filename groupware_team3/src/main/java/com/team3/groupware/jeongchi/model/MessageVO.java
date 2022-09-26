@@ -8,14 +8,14 @@ import javax.validation.constraints.Pattern;
 
 public class MessageVO {
 
-	@NotNull(message="번호를 입력해주세요")
 	private int message_num;            // 편지번호
-	@NotNull
+
 	private int message_important;      // 중요편지
 	@NotNull
-	@Pattern(regexp="")
+	@Pattern(regexp="/^[가-힣]*$/", message="한글만 입력가능합니다")
 	private String message_sender;      // 보낸사람
 	@NotNull
+	@Pattern(regexp="/^[가-힣]*$/", message="한글만 입력가능합니다")
 	private String message_receiver;    // 받는사람
 	@NotNull
 	private String message_title;       // 쪽지 제목
@@ -23,15 +23,15 @@ public class MessageVO {
 	@NotNull
 	private Date message_datetime;      // 작성일시
 	private String message_file_route;  // 첨부파일 경로
-	@NotNull
+
 	private int message_read;           // 내가읽은쪽지
-	@NotNull
+
 	private String message_type;        // 쪽지종류
-	@NotNull
+
 	private int message_delete_check;   // 삭제여부
 	@NotNull
 	private int emp_num;                // 사원번호
-	@Future
+	@Future(message="예약시간을 확인해주세요")
 	private Date message_reserved_datetime;  // 예약 시간설정
 	
 

@@ -1,0 +1,437 @@
+/*
+이은지
+*/
+
+@charset "UTF-8";
+@font-face {
+    font-family: 'BBTreeGR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.content_box {  
+    height: 80px;
+    width: 100%;
+    font-size: 2rem;
+    font-family: 'BBTreeGR';
+    padding: 15px;
+    border-bottom: 1px solid gray;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    }
+.worktime_new_container{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     margin-left: 10%;
+     margin-right: 10%;
+     min-width: 850px;
+    }
+        
+
+/* 결재선지정 테이블 */
+.basic_setting{
+    font-weight: bold;
+    font-family: 'BBTreeGR';
+    padding: 15px;
+    margin: 35px 0 20px;
+}
+.worktime_table_box_fir{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.basic_setting table tr td{
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid rgb(224, 222, 222);
+}
+.table_bg{
+    background-color: rgb(202, 199, 199);
+}
+#type_select{
+     border: 0;
+}
+#type_select:focus{
+      outline: none;
+}
+.table_box_sec{
+    display: flex;
+    flex-direction: row;
+}
+.table_size{
+    width: 20% !important;
+}
+#EDMS_money_table_size{
+    width: 85%;
+    text-align: right;
+}
+#btn_bg{
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 0.9rem;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 15px;
+    background-color: white;
+    color: dimgray;
+    border: 2px solid dimgray;
+    cursor: pointer;
+}
+#btn_bg:hover{
+    background-color:rgb(13, 110, 253);
+    border: 2px solid rgb(13, 110, 253);
+    color: white;
+    transition: 0.3s;
+}
+#approval_info{
+    margin-top : 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 145%;
+    height: 200px;
+}
+
+/* 상세입력 테이블 */
+.worktime_docu_input_box{
+    font-weight: bold;
+    font-family: 'BBTreeGR';
+    padding: 15px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.worktime_docu_input_icon{
+    font-size: 1.5rem;
+    display:flex;
+    justify-content: right;
+    margin-right: 5%;
+}
+.worktime_docu_input_icon i{
+    margin-left: 10px;
+}
+.worktime_docu_input_icon i:hover{
+        color:rgb(13, 110, 253);
+        transition: 0.3s;
+        cursor: pointer;
+}
+.input_table{
+    width: 90%;
+}
+.input_table_size{
+    height: 100px;
+}
+.input_table_size :nth-child(1){
+    width: 20%;
+    font-size: 2rem;
+}
+.table_box_thr{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    margin-top : 10px;
+}
+.input_table tr td{
+    border: 2px solid black;
+    height: 35px;
+}
+.input_table input[type=text]{
+    width: 95%;
+    float: left;
+    margin-left: 5px;   
+}
+
+
+.worktime_new_api{
+    margin-top : 5px;
+    border: 2px solid black;
+    height: 50%;
+    min-height: 300px;
+    color: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* 결재자의견작성란 */
+.worktime_result_write{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.worktime_result_write div:nth-child(1){
+    margin-top : 20px;
+    width: 90%;
+}
+#worktime_result{
+    width: 90%;
+    margin-top : 10px;
+    border: 2px solid black;
+}
+
+/* 상신/취소 버튼 */
+.worktime_btn {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.worktime_input_btn{
+    margin : 20px 10px 50px;
+    border-radius: 30px;
+    width: 80px;
+    height: 35px;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid black;
+    background-color: white;
+}
+.worktime_approval:hover{
+    background-color: rgb(13, 110, 253);
+    color: white;
+    border: 2px solid rgb(13, 110, 253);
+}
+.worktime_cancel:hover{
+    background-color: gray;
+    color: white;
+    border: 2px solid gray;
+}
+
+/* 조직도 검색 모달창 */
+#worktime_modal{
+    width: 1100px;
+    height: 650px;
+    display: flex;
+    position: absolute;
+    z-index:1045;
+    top : 5%;
+    left : 20%;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 20px;
+   /* 모달창 숨김 */
+    display: none;
+}
+
+/* 검색창 */
+#worktime_modal_search{
+    width: 1000px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 45px; 
+    margin-top: 50px;
+}
+#dept_type_select{
+    height: 27px;
+    width: 100px;
+    margin: 0 10px 0 47px;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid black;
+}
+#dept_search_select:focus{
+    outline: none;
+  }
+#dept_search_input{
+    width:250px;
+    height: 25px;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid black;
+  }
+#dept_search_btn{
+    margin-left: 5px;
+    border-radius: 30px;
+    width: 60px;
+    height: 30px;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: white;
+}
+#dept_search_btn:hover{
+    color:rgb(13, 110, 253);
+    cursor: pointer;
+}
+#worktime_modal_flex{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* 모달 - dept */
+#worktime_modal_dept_name{
+    width: 130px;
+    height: 480px;
+    margin: 0 10px 0 40px;
+    border: 2px solid black;
+}
+#worktime_modal_dept_name ul{
+    padding: 0;
+}
+.worktime_dept_btn{
+    margin: 15px;
+    list-style-type: none;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.worktime_dept_btn:hover{
+
+    cursor: pointer;
+    color:rgb(13, 110, 253);
+}
+
+
+/* 모달 - dept 정보 */
+#worktime_modal_dept_people_info{
+    width: 400px;
+    height: 480px;
+    margin-right: 10px;
+    border: 2px solid black;
+    overflow: auto;
+}
+
+/* 모달 - 결재자 버튼 */
+#worktime_modal_button{
+    width: 150px;
+    height: 480px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.approval_btn{
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: white;
+    width: 100px;
+    height: 40px;
+    margin-bottom: 50px;
+}
+.approval_btn:hover{
+    color: rgb(13, 110, 253);
+}
+/* 모달 - 결재자 선택 보여지는 칸 */
+#worktime_modal_approval{
+    width: 300px;
+    height: 480px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    font-size: 1rem;
+}
+/* 모달 - 결재자 라인 */
+.modal_approval{
+    font-family: 'BBTreeGR';
+    width: 90%;
+    height: 30%;
+    padding: 15px;
+}
+.approval_box{
+    width: 100%;
+    height: 70%;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+/* 모달 - x 버튼 */
+#worktime_modal_xicon{
+    position: absolute;
+    top:15px;
+    right: 15px;
+}
+.xi-close-circle{
+    font-size: 28px;
+    color:  rgb(13, 110, 253);
+}
+.xi-close-circle:hover{
+    cursor: pointer;
+    color: gray;
+}
+/* 모달 확인 버튼 */
+.modal_submit_btn{
+   position: absolute;
+   right:50px;  
+   background-color: white;
+   font-size: 1rem;
+   font-family: 'BBTreeGR';
+   font-weight: bold;
+   border-radius: 30px;
+   padding: 8px;
+}
+.modal_submit_btn:hover{
+	background-color:rgb(13, 110, 253);
+	border: 2px solid rgb(13, 110, 253);
+	color: white;
+	cursor: pointer;
+}
+
+/* 모달 - 뒷배경 */
+  #worktime_modal_back{
+	font-size: 1rem;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1041;
+    /* 부트스트랩 메뉴 z-index 1039 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 모달 뒷배경 숨김 */
+    display: none;
+  }
+/* 스크롤 방지 */
+.stop_scroll{
+	height: 100%;
+	overflow: hidden;
+	
+}
+
+
+/* deptList */
+#deptList_table{
+	border-collapse: collapse;
+    width: 100%;
+    border: 1px solid rgb(224, 222, 222);
+    text-align: center;
+    font-family: 'BBTreeGR';
+}
+.deptList_bg{
+background-color: gray;
+color: white;
+}
+#deptList_table tr td{
+	font-size: 1rem;
+	font-weight: bold;
+    padding: 10px 0;
+    border: 1px solid rgb(224, 222, 222);
+}
+#deptList_table tr th{
+    padding: 10px 0;
+    border: 1px solid rgb(224, 222, 222);
+}
+
+

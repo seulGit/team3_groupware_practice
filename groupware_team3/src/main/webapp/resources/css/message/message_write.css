@@ -148,6 +148,26 @@
     margin: 0;
     padding: 0;
 }
+
+/* 220922 검색창 디자인 */
+
+#searchBox{
+	
+}
+	/* <form name="form1" method="POST" action="/list">
+		<select name="search_option">
+			<option value="all" <c:out value="${map.search_option == 'all' ? 'selected' : ''}"/>>전체</option>
+						<option value="empName" <c:out value="${map.search_option == 'empName' ? 'selected' : ''}"/>>사원명</option>
+						<option value="empNum" <c:out value="${map.search_option == 'empNum' ? 'selected' : ''}"/>>사원번호</option>
+					</select> 
+					<input type="text" placeholder="검색하세욧" name="keyword" id="messageAddressSearch" value=""> 
+					<input type="submit" value="검색" id="searchBtn">
+				</form>
+				</div>	*/ 
+
+
+
+
 /* 220826 좌측 부서명 */
 .message_modal_body .dept ul{
     padding: 5px 0 5px 5px;

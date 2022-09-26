@@ -85,15 +85,15 @@
                         <div class="collapse" id="collapse_worktime" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../worktime/worktime_home">근태관리홈</a>
-                                <a class="nav-link" href="../worktime/worktime_new">연차신청하기</a>
-                                <a class="nav-link" href="../worktime/worktime_wait">승인대기중</a>
-                                <a class="nav-link" href="../worktime/worktime_ing">진행중문서</a>
-                                <a class="nav-link" href="../worktime/worktime_end">완료문서</a>
-                                <a class="nav-link" href="../worktime/worktime_view">출퇴근현황</a>
+                                <a class="nav-link" href="/worktime">근태관리홈</a>
+                                <a class="nav-link" href="/worktime_new">연차신청하기</a>
+                                <a class="nav-link" href="/worktime_wait">승인대기중</a>
+                                <a class="nav-link" href="/worktime_ing">진행중문서</a>
+                                <a class="nav-link" href="/worktime_end">완료문서</a>
+                                <a class="nav-link" href="/worktime_view">출퇴근현황</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="../todo/todo">
+                        <a class="nav-link" href="/todo">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             	ToDo+
                         </a>
@@ -132,8 +132,9 @@
                         <div class="collapse" id="collapse_board" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/board_write">게시글작성</a>
                                 <a class="nav-link" href="../board/board_notice">공지게시판</a>
-                                <a class="nav-link" href="../board/board_normal">일반게시판</a>
+                                <a class="nav-link" href="/board_normal">일반게시판</a>
                                 <a class="nav-link" href="../board/board_docu">자료실</a>
                             </nav>
                         </div>
