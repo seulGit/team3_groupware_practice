@@ -1,5 +1,6 @@
 package com.team3.groupware.seongyu.controller;
 
+import com.team3.groupware.common.model.EmployeeVO;
 import com.team3.groupware.seongyu.model.BookingVO;
 import com.team3.groupware.seongyu.service.BookingServce;
 import org.json.simple.JSONArray;
@@ -25,7 +26,11 @@ public class BookingController {
     @RequestMapping(value = "/booking", method = RequestMethod.GET)
     public ModelAndView booking_view(){
         ModelAndView mv = new ModelAndView();
+        List<EmployeeVO> empList = bookingServce.emp_num_name_select();
+        System.out.println(empList);
+        mv.addObject("emp_info", empList);
         mv.setViewName("../views/seongyu/booking/booking");
+        System.out.println(mv);
         return mv;
     }
 
@@ -103,4 +108,17 @@ public class BookingController {
         return mv;
     }
 
+    @RequestMapping(value = "/booking_event_change", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView booking_event_change(@RequestParam Map<String, Object> map){
+        ModelAndView mv = new ModelAndView();
+
+        System.out.println("=============================== 이벤트 정보 수정 ===============================");
+        System.out.println(map);
+        System.out.println("=============================== 이벤트 정보 수정 ===============================");
+
+        this.bookingServce.booking_event_change(map);
+        mv.setViewName("redirect:/bookingList");
+        return mv;
+    }
 }

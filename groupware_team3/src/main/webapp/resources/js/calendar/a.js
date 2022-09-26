@@ -123,10 +123,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         //     || info.event.backgroundColor != event_background_color.value){
                         //     calendar.refetchEvents();
                         // }
-                        info.eventChange()
-                        info.event.setStart(month_calendar_start_datetime.value);
-                        info.event.setEnd(month_calendar_end_datetime.value);
+
+                        info.event.setProp("title", event_add_title_input.value);
+                        info.event.setDates(month_calendar_start_datetime.value, month_calendar_end_datetime.value)
                         info.event.setExtendedProp("content", event_content.value);
+                        info.event.setProp("backgroundColor", event_background_color.value);
+
 
                         $.ajax({
                             url: "/calendarChange",
