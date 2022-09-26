@@ -4,10 +4,10 @@
 
    <!-- 첨부파일 없는 쪽지쓰기    -->
    <insert id="sendNote" parameterType="hashMap" useGeneratedKeys="true" keyProperty="message_num">
-	insert into message
-    (receiver, subject, writer, attach_Address, contents) 
-    values
-    (#{receiver}, #{subject}, #{writer}, #{attach_Address}, #{contents}) 
+insert into message
+    (message_receiver, message_title, message_sender, message_contents, message_datetime, emp_num)
+values
+    (#{message_receiver}, #{message_title}, #{message_sender}, #{message_contents}, now(), 22000001);
    </insert>
 
    <!-- 전체 사원리스트 불러오기 -->

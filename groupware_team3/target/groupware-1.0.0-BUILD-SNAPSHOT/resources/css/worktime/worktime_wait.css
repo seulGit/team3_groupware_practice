@@ -1,0 +1,112 @@
+/*
+이은지
+*/
+
+@charset "UTF-8";
+@font-face {
+    font-family: 'BBTreeGR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.content_box {  
+    height: 80px;
+    width: 100%;
+    font-size: 2rem;
+    font-family: 'BBTreeGR';
+    padding: 15px;
+    border-bottom: 1px solid gray;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    }
+        
+/* 대기중문서 테이블 */
+.worktime_wait_docu_list {
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.worktime_wait_docu_table_list {
+    margin: 10px;
+}
+#worktime_wait_docu_font{
+    font-weight: normal;
+    font-family: 'BBTreeGR';
+}
+
+.worktime_wait_docu_table {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid dimgray;
+    text-align: center;
+    min-width: 750px;
+}
+
+.worktime_wait_table_bg {
+    background-color: gray;
+    color: white;
+}
+
+.worktime_wait_docu_table tr td {
+    padding: 10px 0;
+}
+
+.worktime_wait_table_hover {
+    border-bottom: 1px solid gray;
+}
+
+.worktime_wait_table_hover:hover {
+    background-color: azure;
+    cursor: pointer;
+}
+
+
+
+/* 페이지 넘버 */
+.worktime_wait_list_number {
+    padding-top: 25px;
+    text-align: center;
+    min-width: 750px;
+}
+
+.worktime_wait_list_n_menu {
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
+}
+
+.worktime_wait_list_n_menu a {
+    padding: 5px 8px 4px 8px;
+    margin: 2px;
+    border: #ccc 1px solid;
+    color: #999;
+    text-decoration: none;
+}
+
+.worktime_wait_list_n_menu a:hover {
+    border: #999 1px solid;
+    color: #666;
+}
+
+.worktime_wait_list_n_menu a:active {
+    border: #999 1px solid;
+    color: #666;
+}
+
+.worktime_wait_list_n_menu .worktime_wait_current {
+    border: #117bff 1px solid;
+    padding: 5px 8px 4px 8px;
+    font-weight: bold;
+    margin: 2px;
+    color: #036cb4;
+}
+
+.worktime_wait_list_n_menu .worktime_wait_disabled {
+    padding: 5px 8px 4px 8px;
+    margin: 2px;
+}

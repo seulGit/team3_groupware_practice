@@ -1,0 +1,166 @@
+/*
+이은지
+*/
+
+@charset "UTF-8";
+@font-face {
+    font-family: 'BBTreeGR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.layoutSide_box{
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.content_box{
+        height: 80px;
+        width: 100%;
+        font-size: 2rem;
+        font-family: 'BBTreeGR';
+        padding: 15px;
+        border-bottom: 1px solid gray;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        min-width: 1100px;
+}
+.worktime_container{
+    min-width: 1100px;
+}
+
+.commute_input{
+    height: 150px;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top : 50px;
+}
+.commute_position{
+    font-weight: bold;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+.commute_position>div{
+    margin-right: 50px;
+}
+.commute_intput_margin{
+    margin-left: 5px;
+}
+
+/* 출퇴근시간 제출 버튼 */
+#worktime_btn{
+    font-family: 'BBTreeGR';
+    border-radius: 20px;
+    font-weight:bold;
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    color: dimgray;
+    border: 2px solid dimgray;
+    background-color: white;
+    cursor: pointer;
+}
+#worktime_btn:hover{
+    background-color: rgb(13, 110, 253);
+    color: white;
+    border: 2px solid rgb(13, 110, 253);
+    transition: 0.3s;
+}
+
+.my_annual_leave{
+    height: 150px;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top : 50px;
+}
+
+/* 휴가계신청 버튼 */
+#annual_leave_btn{
+    margin-left: 10px;
+    font-family: 'BBTreeGR';
+    border-radius: 20px;
+    font-weight:bold;
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    color: dimgray;
+    border: 2px solid dimgray;
+    background-color: white;
+    cursor: pointer;
+}
+#annual_leave_btn:hover{
+    background-color: rgb(13, 110, 253);
+    color: white;
+    border: 2px solid rgb(13, 110, 253);
+    transition: 0.3s;
+}
+
+/* 나의 연차 기록 */
+.my_annual_leave_list{
+    height: 80px;
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.my_annual_name{
+    padding: 15px 5px;
+    text-align: center;
+}
+.my_annual_width{
+    width: 800px;
+    margin-left: 20px;
+}
+#my_annual_table{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border: 1px solid darkgray;
+}
+#my_annual_table_left_line{
+    border-left: 1px solid darkgray;
+}
+
+/* 문서 테이블 */
+.docu_list{
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top : 50px;
+}
+#waiting_docu_font{
+    font-weight: lighter;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+.docu_table_position{
+    margin: 10px;
+}
+.docu_table tr td{
+     padding: 10px 0;
+}
+.docu_table{
+    height: 80%;
+    width: 100%;
+    text-align: center;
+}
+.docu_table_hover{
+    border-bottom : 1px solid gray;
+}
+.docu_table_hover:hover{
+    background-color: azure;
+    cursor: pointer;
+}
+.table_bg{
+    background-color: gray;
+    color: white;
+}
+.table_bottom_margin{
+	margin-bottom: 50px;
+}
+
