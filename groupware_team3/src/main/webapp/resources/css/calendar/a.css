@@ -1,0 +1,203 @@
+.event_add_container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: -56px;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0.6);
+    z-index: 9999;
+    display: none;
+}
+
+.arrow_arrow {
+    position: absolute;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    width: 300px;
+    background-color: rgb(234, 234, 237);
+    border-radius: 7px;
+    box-shadow: 0 5px 15px 3px rgba(128, 128, 128, 0.3);
+    display: none;
+    top: 30%;
+    left: 40%;
+    /* transition: all 0.1s; */
+    z-index: 999;
+    transform: rotateX(90deg);
+}
+
+.arrow_arrow>div:nth-child(2) {
+    padding: 15px;
+}
+
+.arrow_title_or_color_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+.back_ground_color_container {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    justify-content: space-between;
+    border: none;
+}
+
+.arrow_title_or_color_container > input[type=color]{
+    width: 25px;
+    height: 25px;
+    border: none;
+    appearance: none;
+}
+.arrow_title_or_color_container > input[type=color]::-webkit-color-swatch{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.arrow_title_or_color_container>input {
+    background-color: rgb(234, 234, 237);
+    border: none;
+    width: 210px;
+    font-size: 1.2rem;
+}
+
+.arrow_title_or_color_container>input:focus {
+    outline: none;
+}
+
+.arrow_datetime_container {
+    padding: 10px 0;
+    margin: 10px 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    color: rgb(109, 109, 109);
+
+    /* margin: 15px 0;
+width: 298px;
+transform: translateX(-14.7px); */
+}
+
+.arrow_datetime_container>div {
+    height: 0px;
+    background-color: rgb(226, 226, 230);
+    /* border-top: 1px solid gray; */
+    /* border-bottom: 1px solid gray; */
+    /* padding: 10px; */
+    /* display: none; */
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 0.9rem;
+    font-weight: bold;
+    overflow: hidden;
+    align-items: center;
+    transition: height 1s;
+}
+
+
+.arrow_datetime_container>div>div {
+    padding: 2px 0;
+}
+
+.arrow_datetime_container>div>div:not(.arrow_datetime_alarm) {
+    display: flex;
+    margin-left: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow_datetime_container>div>div>input {
+    width: 180px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.arrow_datetime_container>div>div>span {
+    color: rgb(79, 79, 79);
+}
+
+.arrow_datetime_container>div>div>div:hover {
+    border-radius: 2px;
+    background-color: rgba(128, 128, 128, 0.3);
+    cursor: pointer;
+}
+
+.arrow_datetime_alarm {
+    display: flex;
+    margin-left: 50px;
+    align-items: center;
+}
+
+.arrow_datetime_alarm>div {
+    margin-left: 18px;
+}
+
+
+.arrow_memo>textarea {
+    background-color: rgb(234, 234, 237);
+    border: none;
+    width: 268px;
+    resize: none;
+    font-size: 1rem;
+    height: 65px;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.event_change,
+.event_add,
+.event_remove {
+    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+    color: rgb(109, 109, 109);
+}
+
+
+.event_remove>div:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.event_change input[type=button],
+.event_remove input[type=button],
+.event_add input[type=button]{
+    border: none;
+    color: rgb(109, 109, 109);
+    background-color: rgba(109, 109, 109, 0);
+    padding: 0;
+}
+.event_change input[type=button]:hover{
+    color: rgb(13, 110, 253);
+    cursor: pointer;
+}
+.event_add input[type=button]:hover{
+    color: rgb(13, 110, 253);
+    cursor: pointer;
+}
+.event_remove input[type=button]:hover{
+    color: red;
+    cursor: pointer;
+}
+.arrow_memo>textarea:focus {
+    outline: none;
+}
+
+.arrow_memo>textarea::placeholder {
+    color: gray;
+}
+
+.arrow_memo>textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.arrow_memo>textarea::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: rgb(172, 172, 172);
+    border-radius: 10px;
+}
+
+.arrow_memo>textarea::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);
+}
