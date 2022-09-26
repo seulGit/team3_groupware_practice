@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="booking">
+    <select id="booking_List" resultType="com.team3.groupware.seongyu.model.BookingVO">
+        <![CDATA[
+            select
+                booking_num, booking_color, booking_title, meetingroom_num, fixtures_num, emp_num, booking_attendees, booking_start_date, booking_end_date, booking_memo
+            from
+                booking
+        ]]>
+    </select>
+
+    <update id="booking_date_change" parameterType="hashmap">
+		<![CDATA[
+            UPDATE
+                booking
+            SET
+                booking_start_date = #{booking_start_date},
+                booking_end_date = #{booking_end_date}
+            WHERE
+                booking_num = #{booking_num};
+        ]]>
+	</update>
+
+    <delete id="booking_delete" parameterType="hashMap">
+		<![CDATA[
+            DELETE
+            FROM
+                groupware.booking
+            WHERE
+                booking_num = #{booking_num};
+        ]]>
+	</delete>
+
+    <insert id="booking_insert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="hashMap">
+        <![CDATA[
+           INSERT INTO
+                booking
+                    (meetingroom_num,
+                     fixtures_num,
+                     emp_num,
+                     booking_attendees,
+                     booking_start_date,
+                     booking_end_date,
+                     booking_title,
+                     booking_color,
+                     booking_memo)
+            values
+                (#{meetingroom_num},
+                 #{fixtures_num},
+                 990810,
+                 #{booking_attendees},
+                 #{booking_start_date},
+                 #{booking_end_date},
+                 #{booking_title},
+                 '#0d6efd',
+                 #{booking_memo});
+        ]]>
+    </insert>
+</mapper>

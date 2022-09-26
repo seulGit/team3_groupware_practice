@@ -1,0 +1,272 @@
+@font-face {
+    font-family: 'BBTreeGR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* jsp include 시 상단이 잘려서 추가 */
+.admin_contents_section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    min-width: 0;
+    flex-grow: 1;
+    min-height: calc(100vh - 56px);
+    /* margin-left: -225px; */
+    padding-left: 225px;
+    top: 56px;
+}
+
+#home_content_container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'BBTreeGR';
+    min-width: 950px;
+}
+
+/* 22/08/19 김정치 인물정보 바로가기 근태정보 시작 */
+#layoutSidenav_content .homebox1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+}
+
+#layoutSidenav_content .homebox1 .home_personal_info {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 35%;
+    width: 100%;
+}
+
+#layoutSidenav_content .homebox1 .home_personal_insert_info {
+    border-radius: 10px;
+    height: 32%;
+    width: 100%;
+}
+
+#layoutSidenav_content .homebox1 .home_worktime {
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 30%;
+    width: 100%;
+}
+
+#layoutSidenav_content .homebox1 .home_personal_img {
+    background-color: brown;
+    margin: 7px auto;
+    border-radius: 10px;
+    width: 200px;
+    height: 50%;
+}
+
+#layoutSidenav_content .homebox1 .home_personal_name {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+#layoutSidenav_content .homebox1 .home_personal_company {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+}
+
+#layoutSidenav_content .homebox1 .home_EDMS_docu {
+    margin-top: 10px;
+}
+
+#layoutSidenav_content .homebox1 .home_EDMS_docu>p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin: 0 25px 3px 25px;
+}
+
+#layoutSidenav_content .homebox1 .home_EDMS_docu span {
+    background-color: aqua;
+    width: 30px;
+    text-align: right;
+    padding-right: 5px;
+    border-radius: 5px;
+
+}
+
+#layoutSidenav_content .homebox1 .home_personal_insert_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#layoutSidenav_content .homebox1 .home_personal_insert_info button {
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 47%;
+    height: 40%;
+}
+
+#layoutSidenav_content .homebox1 .home_content_title,
+#layoutSidenav_content .homebox2 .home_content_title,
+#layoutSidenav_content .homebox3 .home_content_title {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 15px 0 15px;
+}
+
+#layoutSidenav_content .homebox1 .home_worktime_time {
+    font-size: 15px;
+    margin: 0 15px 0 15px;
+}
+
+/* 22/08/19 김정치 인물정보 바로가기 근태정보 끝 */
+
+/* 22/08/19 김정치 홈 전사게시판 최근글 시작 */
+#layoutSidenav_content .homebox2 {
+    display: flex;
+    width: 43%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+
+#layoutSidenav_content .homebox2>div {
+    height: 100%;
+    width: 100%;
+}
+
+/* 탭메뉴 */
+#layoutSidenav_content .homebox2 .tabmenu {
+    display: flex;
+    /* background-color: #fff0d6; */
+    /* margin: 20px auto; */
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu_list {
+    list-style: none;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu ul {
+    padding: 0;
+    height: 600px;
+    width: 100%;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu ul li {
+    display: inline;
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu label {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu input {
+    /* radio input은 기능만 필요하므로
+     display: none 처리 */
+    display: none;
+}
+
+#layoutSidenav_content .homebox2 .tabCon {
+    display: none;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: #dadada;
+}
+
+#layoutSidenav_content .homebox2 .tabCon table {
+    width: 100%;
+    border-top: 1px solid gray;
+    text-align: left;
+    margin-top: 15px;
+}
+
+#layoutSidenav_content .homebox2 .tabCon table tr {
+    border-bottom: 1px solid gray;
+}
+
+#layoutSidenav_content .homebox2 .tabCon .home_board_title {
+    margin: 0 0 0 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#layoutSidenav_content .homebox2 .tabCon .home_board_info {
+    margin: 0 0 0 5px;
+    font-size: 0.8rem;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu input:checked~label {
+    /* 형제 선택자 ~를 이용하여 input이 checked 되면
+        laber(탭제목)에 효과 부여 */
+    font-size: 1rem;
+    font-weight: 800;
+    color: black;
+    cursor: pointer;
+    background-color: #dadada;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu input:checked .tabmenu {
+    background-color: white;
+}
+
+#layoutSidenav_content .homebox2 .tabmenu input:checked~.tabCon {
+    display: block;
+}
+
+/* 22/08/19 김정치 홈 전사게시판 최근글 끝 */
+
+/* 22/08/19 김정치 홈 카드목록 최근 로그인 정보 시작 */
+#layoutSidenav_content .homebox3 {
+    /* background-color: darkgoldenrod; */
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#layoutSidenav_content .homebox3 .home_todo {
+    border-radius: 10px;
+    border: 1px solid gray;
+    height: 20%;
+}
+
+#layoutSidenav_content .homebox3 .home_todo_content {
+    font-size: 15px;
+    margin: 0 15px 0 15px;
+}
+
+#layoutSidenav_content .homebox3 .home_recent_login {
+    border-radius: 10px;
+    border: 1px solid gray;
+    height: 77%;
+}
+
+/* 22/08/19 김정치 홈 카드목록 최근 로그인 정보 끝 */

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="login">
+
+
+
+    <select id="login_check" resultType="com.team3.groupware.common.model.EmployeeVO">
+
+        select
+            emp_num, auth_code
+        from
+            employee
+        where
+            emp_num = ${emp_num} and emp_pw = '${emp_pw}';
+
+    </select>
+
+</mapper>

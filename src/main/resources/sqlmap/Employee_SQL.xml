@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+	<!--	220922 18:00 성선규 추가	-->
+	<!--	사원전체 테이블 조회-->
+	<select id="select_list" resultType="com.team3.groupware.common.model.EmployeeVO">
+		<![CDATA[
+			SELECT
+			    emp_num,
+			    auth_code,
+			    auth_code,
+			    emp_name,
+			    emp_pw,
+			    emp_email,
+			    emp_desk_num,
+			    emp_phonenum,
+			    emp_address,
+			    emp_birth,
+			    emp_gender,
+			    join_date,
+			    leave_date,
+			    emp_auth,
+			    dept_num,
+			    position_grade
+			FROM
+			    employee
+		]]>
+	</select>
+
+	<!--	220922 18:00 성선규 추가	-->
+	<!--	사원번호 및 사원 이름 조회	-->
+	<select id="select_list_num_name" resultType="com.team3.groupware.common.model.EmployeeVO">
+		<![CDATA[
+			SELECT
+			    emp_num,
+			    emp_name
+			FROM
+			    employee
+		]]>
+	</select>
+</mapper>

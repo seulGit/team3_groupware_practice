@@ -1,0 +1,199 @@
+.booking_modal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(128, 128, 128, 0.4);
+    position: absolute;
+    left: 0;
+    top: -56px;
+    z-index: 99999;
+    display: none;
+}
+.booking_event_container{
+    width: 300px;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 7px;
+    box-shadow: 0 5px 15px 3px rgba(128, 128, 128, 0.3);
+    position: absolute;
+    top: 17%;
+    left: 40%;
+    background-color: rgb(234, 234, 237);
+}
+.booking_event_container > div{
+    margin: 0 15px;
+}
+.booking_event_container > div > div{
+    padding: 15px 0px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    border-collapse: collapse;
+}
+
+/* title */
+.booking_event_title_or_color_container > input[type=text]{
+    background-color: rgb(234, 234, 237);
+    border: none;
+    width: 260px;
+    font-size: 1.2rem;
+    transition: color 3s;
+}
+.booking_event_title_or_color_container > input[type=text]:focus {
+    outline: none;
+}
+.empty_booking_event_title_color::-webkit-input-placeholder {
+    color: red;
+ }
+
+@keyframes empty_booking_event_title {
+    0%{
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+/* datetime */
+.booking_event_datetime_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#booking_event_datetime_set_btn{
+    display: none;
+    height: 53px;
+    font-size: 1.2rem;
+}
+.booking_event_datetime_box{
+    margin-left: 30px;
+    display: block;
+    height: 0px;
+    overflow-y: hidden;
+    transition: height 1s;
+}
+.booking_event_datetime_box > div{
+    display: flex;
+    justify-content: space-between;
+}
+.booking_event_datetime_box > div > input{
+    width: 150px;
+}
+input[type=datetime-local]{
+    background-color: rgb(234, 234, 237);
+    border: none;
+}
+
+/* meetingroom, fixtures */
+.booking_event_use_select{
+    overflow: hidden;
+}
+.booking_event_meetingroom{
+    height: 30px;
+    transition: all 1s;
+}
+.booking_event_fixtures{
+    height: 30px;
+    transition: all 1s;
+}
+.booking_event_meetingroom > select{
+    font-size: 1rem;
+    width: 270px;
+    height: 30px;
+    background-color: rgb(234, 234, 237);
+    border: none;
+    outline: none;
+}
+.booking_event_fixtures > select{
+    font-size: 1rem;
+    width: 270px;
+    height: 30px;
+    background-color: rgb(234, 234, 237);
+    border: none;
+    outline: none;
+}
+
+/* attendees */
+.booking_event_attendees_container > div{
+    display: flex;
+    flex-wrap: wrap;
+}
+.booking_event_attendees_container > div:nth-child(2) > div{
+    width: 87px;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+.booking_event_attendees_container > div > div > input{
+    /* caret-color: rgb(234, 234, 237); */
+}
+.booking_attendees_list{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+.booking_attendees_list > div{
+    display: flex;
+    flex-wrap: wrap;
+}
+.attendees{
+    display: flex;
+    align-items: center;
+    width: 75px;
+    margin: 0 5px;
+    justify-content: center;
+    color: black;
+}
+.attendees > div:nth-child(1){
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* 용도 */
+.booking_content_box > textarea{
+    background-color: rgb(234, 234, 237);
+    resize: none;
+    border: none;
+    height: 70px;
+    font-size: 1rem;
+    width: 265.4px;
+    outline-color: rgba(107, 107, 107, 0.4);
+}
+.booking_content_box > textarea:focus{
+    outline: none;
+}
+.booking_content_box>textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.booking_content_box>textarea::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: rgb(172, 172, 172);
+    border-radius: 10px;
+}
+
+.booking_content_box>textarea::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);
+}
+
+.booking_change_event > button,
+.booking_add_event > button,
+.booking_remove_event > button{
+    border: none;
+    outline: none;
+    background-color: rgb(234, 234, 237);
+    width: 265px;
+    color: gray;
+}
+
+.booking_add_event > button:hover{
+    color: rgb(13, 110, 253);
+}
+.booking_remove_event > button:hover{
+    color: red;
+}
+.booking_change_event > button:hover{
+    color: orange;
+}

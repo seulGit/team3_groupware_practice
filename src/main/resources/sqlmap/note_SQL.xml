@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="note">
+
+   <!-- 첨부파일 없는 쪽지쓰기    -->
+   <insert id="sendNote" parameterType="hashMap" useGeneratedKeys="true" keyProperty="message_num">
+insert into message
+    (message_receiver, message_title, message_sender, message_contents, message_datetime, emp_num)
+values
+    (#{message_receiver}, #{message_title}, #{message_sender}, #{message_contents}, now(), 22000001);
+   </insert>
+
+   <!-- 전체 사원리스트 불러오기 -->
+	<select id="findListAll" resultType="com.team3.groupware.common.model.EmployeeVO">
+		select emp_name, position_name, dept_name, emp_no, fk_dept_no
+		from emp_table
+		order by emp_no desc;
+	</select>
+   
+   <!-- 해당 부서 사원리스트 불러오기 -->
+   <select id="findList" parameterType="HashMap" resultType="com.team3.groupware.common.model.EmployeeVO">
+		select E.emp_name as emp_name, E.position_grade as position_grade, D.dept_name as dept_name, 
+		E.emp_num as emp_num, E.dept_code as dept_code
+		from employee E left join department D
+		on E.dept_code = D.dept_code
+		<if test="dept_code != null">
+		where E.dept_code = #{dept_code} <!-- 부서와 jsp 해당 클래스의 value 값 비교 -->
+		</if>
+		order by emp_num desc;
+   </select>
+ 
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="calendar_event">
+	<insert id="event_insert" parameterType="hashMap"
+		useGeneratedKeys="true" keyProperty="hashMap">
+		<![CDATA[
+			insert into calendar
+    		(calendar_start_date, calendar_end_date, calendar_title, calendar_memo, emp_num, calendar_color)
+    		values
+    		(#{calendar_start_date}, #{calendar_end_date}, #{calendar_title}, #{calendar_memo}, 990810, #{calendar_color})
+		]]>
+	</insert>
+	<select id="event_select_list" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select
+			    calendar_num,
+				calendar_start_date,
+				calendar_end_date,
+				calendar_title,
+				calendar_memo,
+			    emp_num,
+				calendar_color
+			from
+			    calendar
+			where
+			    emp_num = 990810;
+		]]>
+
+	</select>
+	<delete id="event_delete" parameterType="hashMap">
+		<![CDATA[
+			DELETE
+			FROM
+			    groupware.calendar
+			WHERE
+			    calendar_num = #{calendar_num};
+		]]>
+	</delete>
+	<update id="event_date_change" parameterType="hashMap">
+		<![CDATA[
+			UPDATE
+			    groupware.calendar t
+			SET
+			    t.calendar_start_date = #{calendar_start_date},
+			    t.calendar_end_date = #{calendar_end_date}
+			WHERE
+			    t.calendar_num = #{calendar_num};
+		]]>
+	</update>
+
+	<update id="event_change" parameterType="hashMap">
+		<![CDATA[
+		UPDATE
+			groupware.calendar t
+		SET
+		    t.calendar_memo = #{calendar_memo},
+		    t.calendar_title = #{calendar_title},
+			t.calendar_start_date = #{calendar_start_date},
+			t.calendar_end_date = #{calendar_end_date},
+			t.calendar_color = #{calendar_color}
+		WHERE
+			t.calendar_num = #{calendar_num};
+		]]>
+	</update>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktime">
+
+<insert id="worktime_view_insert" parameterType="com.team3.groupware.eunji.model.WorktimeVO">
+	insert into worktime (emp_num, workdate, worktime_go, worktime_out, worktime_hours)
+	values (22300001, now(), #{worktime_go}, #{worktime_out}, #{worktime_hours});
+</insert>
+
+<select id="worktime_view_select" resultType="com.team3.groupware.eunji.model.WorktimeVO">
+	select W.workdate, W.worktime_go, W.worktime_out, W.worktime_hours
+	from worktime W join employee E
+	on W.emp_num = E.emp_num
+ 	where E.emp_num = 22300001
+ 	order by W.workdate desc;
+</select>
+
+<select id="worktime_vacation_days" parameterType="com.team3.groupware.eunji.model.WorktimeVO" resultType="HashMap">
+	select E.emp_num, E.emp_name, E.position_grade, D.dept_name, V.used_count, V.available_count
+	from employee E join vacation_days V
+	on E.emp_num = V.emp_num
+	join department D 
+	on E.dept_code = D.dept_code
+	where E.emp_num = 22300001;
+</select>
+
+<select id="worktime_dept_info" parameterType="hashMap" resultType="com.team3.groupware.common.model.EmployeeVO">
+select E.emp_name, E.position_grade, D.dept_name, E.emp_num
+from employee E join department D
+on E.dept_code = D.dept_code where D.dept_name = #{dept_name};
+</select>
+
+<select id="worktime_emp_dept_name" parameterType="com.team3.groupware.common.model.EmployeeVO" resultType="HashMap">
+select E.emp_name, D.dept_name
+from employee E join department D 
+on E.dept_code = D.dept_code
+where E.emp_name = '이은지';
+</select>
+
+</mapper>

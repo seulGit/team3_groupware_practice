@@ -1,0 +1,203 @@
+/*
+이은지
+220922 todo hovar 추가
+220926 todo 버튼 위치 수정
+*/
+
+@font-face {
+    font-family: 'BBTreeGR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* todo 상단 */
+.content_box_first{
+        height: 80px;
+        width: 100%;
+        font-size: 2rem;
+        font-family: 'BBTreeGR';
+        padding: 15px;
+        border-bottom: 1px solid gray;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        position: relative;
+        min-width: 900px;
+    }
+.xi-library-books{
+    margin-right: 5px;
+    font-size: 30px;
+}
+.content_box_first>p{
+    position:absolute;
+    left: 50px;
+    margin:0;
+}
+
+/* todo 즐겨찾기, 내 보드 감싼 부분 */
+.content_box_two{
+    font-weight: bold;
+    font-family: 'BBTreeGR';
+    padding: 15px;
+    margin-left: 20px;
+}
+.my_borad_box{
+	margin-bottom: 30px;
+}
+.my_borad_box:hover{
+	cursor: pointer;
+	box-shadow: 1px 1px 10px 5px rgb(13, 110, 253);
+}
+.favorite_borad_box:hover{
+	cursor: pointer;
+	box-shadow: 1px 1px 10px 5px rgb(13, 110, 253);
+}
+.todo_title{
+    width: 130px;
+}
+.favorite_borad_box_font, .my_borad_box_font{
+    font-size: 17px;
+    font-weight: lighter;
+    font-family: 'BBTreeGR';
+}
+.favorite_borad_box, .my_borad_box{
+        font-family: 'BBTreeGR';
+        border: 1px solid gray;
+        box-shadow: 1px 3px 3px gray;
+        width: 230px;
+        height: 130px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;    
+        margin-right: 30px;
+}
+.favorite_content_box, .my_content_box{
+    width: 210px;
+    height: 82px;
+    padding: 0 15px 0 30px;
+    position: relative;
+   /* 4라인 이상 벗어나면 말줄임표(...) 생성*/
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;  
+}
+.box_position{
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content_box_three{
+    font-weight: bold;
+    padding: 45px 15px;
+    margin-left: 20px;
+    font-family: 'BBTreeGR';
+   
+}
+
+/* todo 생성 */
+.todo_add{
+    position: absolute;
+    left: 155px;
+    top: 30px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: white;
+    border: 2px solid black;
+    transition: all 0.3s;
+}
+.todo_add:hover{
+    background-color: rgb(13, 110, 253);
+    color: white;
+    border: 2px solid rgb(13, 110, 253);
+}
+.content_box_icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.xi-star, .xi-star-o{
+     position: absolute;
+     top : -2px;
+     right: 20px;
+     font-size: 20px;
+     
+}
+.xi-star{
+    color: darkorange;
+}
+.xi-star:hover, .xi-star-o:hover, .xi-close-min:hover{
+    cursor: pointer;
+}
+.xi-close-min{
+    position: absolute;
+    top : -8px;
+    right:-8px;
+    font-size: 30px;
+}
+
+
+/* 모달창 */
+.todo_modal_back{
+    font-size: 1rem;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1040;
+    /* 부트스트랩 메뉴 z-index 1039 */
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+#todo_modal{
+  width: 400px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index:10;
+  top : 30%;
+  left : 40%;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 20px 15px 10px;
+}
+.todo_btn_center{
+    text-align: center;
+    margin: 10px;
+}
+#todo_modal_text{
+    font-size: 1rem;
+    font-family: 'BBTreeGR';
+    /* testarea 사이즈 고정 */
+    resize: none;
+}
+
+/* 모달 창 저장/취소 버튼 */
+.todo_btn{
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 1rem;
+    font-family: 'BBTreeGR';
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.todo_save:hover{
+    background-color: rgb(13, 110, 253);
+    color: white;
+    border: 2px solid rgb(13, 110, 253);
+}
+.todo_cancel:hover{
+    background-color: gray;
+    color: white;
+    border: 2px solid gray;
+}
