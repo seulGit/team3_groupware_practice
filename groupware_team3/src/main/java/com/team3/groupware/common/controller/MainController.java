@@ -6,12 +6,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class MainController {
-	
-	@GetMapping("/main")
-	public ModelAndView main() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/main");
-		return mv;
-	}
+   
+   @GetMapping("/main")
+   public ModelAndView main() {
+      ModelAndView mv = new ModelAndView();
+      mv.setViewName("/main");
+      return mv;
+   }
 
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="todo">
+
+<insert id="todo_write" parameterType="hashMap" useGeneratedKeys="true" keyProperty="todo_num">
+insert into todo (todo_title, todo_contents, todo_favorite, emp_num)
+values (#{todo_title}, #{todo_contents}, false, 22300001);
+</insert>
+
+<select id="todo_board_list" parameterType="hashMap" resultType="com.team3.groupware.eunji.model.TodoVO">
+select T.todo_title, T.todo_contents
+from employee E join todo T
+on E.emp_num = T.emp_num
+where E.emp_num = '22300001'
+order by T.todo_num desc;
+</select>
+
+<select id="todo_New_select" parameterType="hashMap" resultType="com.team3.groupware.eunji.model.TodoVO">
+	select T.todo_title, T.todo_contents
+	from employee E join todo T
+	on E.emp_num = T.emp_num
+	where todo_num = #{todo_num}
+	order by T.todo_num desc;
+</select>
+</mapper>
