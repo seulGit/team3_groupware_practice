@@ -1,7 +1,6 @@
 const modal = document.querySelector('.message_modal');
 const btnOpenPopup = document.querySelector('.message_btn-open-popup');
 const modal_close = document.querySelector('.modal_close');
-var receive = $(".receive_emp");
 
 // 22/08/22 김정치 모달창 띄우기
 btnOpenPopup.addEventListener('click', () => {

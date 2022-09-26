@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <body class="sb-nav-fixed">
@@ -37,10 +38,18 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <a class="nav-link" href="../main">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            	Home
-                        </a>
+                        <c:if test="${sessionScope.auth_code == 'normal'}">
+                            <a class="nav-link" href="../main">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Home
+                            </a>
+                        </c:if>
+                        <c:if test="${sessionScope.auth_code == 'admin'}">
+                            <a class="nav-link" href="../main_admin">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Home
+                            </a>
+                        </c:if>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapse_message" aria-expanded="false" aria-controls="collapse_message">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -59,6 +68,7 @@
                                 <a class="nav-link" href="../message/message_trash">휴지통</a>
                             </nav>
                         </div>
+                        <c:if test="${sessionScope.auth_code eq 'normal'}">
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEDMS"
                             aria-expanded="false" aria-controls="collapseEDMS">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -76,6 +86,8 @@
                                 <a class="nav-link" href="../EDMS/EDMS_end">완료문서</a>
                             </nav>
                         </div>
+
+
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapse_worktime" aria-expanded="false" aria-controls="collapse_worktime">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -154,6 +166,26 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             	조직도
                         </a>
+                        </c:if>
+                        <c:if test="${sessionScope.auth_code eq 'admin'}">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEDMS"
+                           aria-expanded="false" aria-controls="collapseEDMS">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            관리자메뉴
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <c class="collapse" id="collapseEDMS" aria-labelledby="headingOne"
+                             data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="">전자결재관리</a>
+                                <a class="nav-link" href="">근태관리</a>
+                                <a class="nav-link" href="">예약관리</a>
+                                <a class="nav-link" href="">게시글관리</a>
+                                <a class="nav-link" href="../admin/admin_personnelCard">인사기록카드</a>
+                                <a class="nav-link" href="">접속내역확인</a>
+                                <a class="nav-link" href="">권한관리</a>
+                            </nav>
+                            </c:if>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -162,3 +194,4 @@
                 </div>
             </nav>
         </div>
+    </div>
